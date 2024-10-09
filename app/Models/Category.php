@@ -11,7 +11,9 @@ class Category extends Model
 
     protected $table = 'categories';
     
-    protected $fillable = 'name';
+    protected $fillable = [
+        'name'
+    ];
 
     public function disease(){
         $this->hasMany(Disease::class);

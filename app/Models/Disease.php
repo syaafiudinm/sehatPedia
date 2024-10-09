@@ -9,10 +9,13 @@ class Disease extends Model
 {
     use HasFactory;
 
-    protected $table = [
+    protected $table = 'diseases';
+
+    protected $fillable = [
         'name',
         'description',
-        'image'
+        'image',
+        'status'
     ];
 
     public function category(){

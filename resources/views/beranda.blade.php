@@ -61,62 +61,22 @@
 <section class="mt-36">
     <h1 class="text-center font-bold text-3xl">Daftar Penyakit</h1>
     <div class="flex justify-center gap-4 mt-4 max-sm:flex-col items-center">
-        <div class="card bg-base-100 image-full w-72 shadow-xl">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes" />
-            </figure>
-            <div class="card-body">
-              <h2 class="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <button class="btn btn-primary text-white">Buy Now</button>
+        @foreach ($diseases as $disease)  
+          <div class="card bg-base-100 image-full w-72 shadow-xl">
+              <figure>
+                <img
+                  src="{{asset('uploads/disease/'.$disease->image)}}"
+                  alt="Shoes" />
+              </figure>
+              <div class="card-body">
+                <h2 class="card-title">{{$disease->name}}</h2>
+                <p>{{$disease->description}}</p>
+                <div class="card-actions justify-end">
+                  <button class="btn btn-primary text-white">Read More!</button>
+                </div>
               </div>
-            </div>
           </div>
-        <div class="card bg-base-100 image-full w-72 shadow-xl">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes" />
-            </figure>
-            <div class="card-body">
-              <h2 class="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <button class="btn btn-primary text-white">Buy Now</button>
-              </div>
-            </div>
-        </div>
-        <div class="card bg-base-100 image-full w-72 shadow-xl">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes" />
-            </figure>
-            <div class="card-body">
-              <h2 class="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <button class="btn btn-primary text-white">Buy Now</button>
-              </div>
-            </div>
-        </div>
-        <div class="card bg-base-100 image-full w-72 shadow-xl">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes" />
-            </figure>
-            <div class="card-body">
-              <h2 class="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-                <button class="btn btn-primary text-white">Buy Now</button>
-              </div>
-            </div>
-        </div>
+        @endforeach
     </div>
     <div class="flex justify-center mt-4">
         <nav aria-label="Page navigation example">
