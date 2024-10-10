@@ -11,8 +11,14 @@ use Illuminate\Support\Facades\Validator;
 class DiseaseController extends Controller
 {
     public function index()
-    {
-        return view('disease.index');
+    {   
+        $diseases = Disease::orderBy('created_at')->get();
+
+        dd($diseases);
+
+        return view('disease.index',[
+            'diseases' => $diseases
+        ]);
     } 
      
     public function create(){
