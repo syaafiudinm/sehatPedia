@@ -1,7 +1,8 @@
 @extends('layouts.sidebar')
 
 @section('main')
-<h1 class="text-center font-semibold text-3xl">Category List</h1>
+<h1 class="text-center font-semibold text-3xl mb-3">Category List</h1>
+<a href="{{route('category.create')}}" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-800 mb-3">Add Category</a>
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
