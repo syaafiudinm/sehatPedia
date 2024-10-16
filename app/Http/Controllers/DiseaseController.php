@@ -53,7 +53,7 @@ class DiseaseController extends Controller
         $disease->save();
 
         if(!empty($request->image)){
-            File::delete(public_path('uploads/disease'.$disease->image));
+            File::delete(public_path('uploads/disease/'.$disease->image));
 
             $image = $request->image;
             $ext = $image->getClientOriginalExtension();
@@ -65,7 +65,7 @@ class DiseaseController extends Controller
 
         }
 
-        return redirect()->route('disease.create')->with('success', 'Disease post created successfully');
+        return redirect()->route('disease.index')->with('success', 'Disease post created successfully');
     }
 
     public function edit($id){
@@ -105,7 +105,7 @@ class DiseaseController extends Controller
         $disease->save();
 
         if(!empty($request->image)){
-            File::delete(public_path('uploads/disease'.$disease->image));
+            File::delete(public_path('uploads/disease/'.$disease->image));
 
             $image = $request->image;
             $ext = $image->getClientOriginalExtension();
@@ -123,14 +123,12 @@ class DiseaseController extends Controller
     public function destroy($id){
         $disease = Disease::findOrFail($id);
 
-        if($disease->image){
-            $imagepath = public_path('uploads/disease'.$disease->image);
-            if(file_exists($imagepath)){
-                unlink($imagepath);
-            }
+       if(!empty($disease->image)){
+            File::delete(public_path('uploads/disease/'.$disease->image));
         }
 
         $disease->delete();
+
         return redirect()->route('disease.index')->with('success', 'Disease post deleted successfully');
     }
 }

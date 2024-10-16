@@ -2,7 +2,9 @@
 
 @section('main')
     <h1 class="text-center font-semibold text-3xl">Disease's List</h1>
+    <a href="{{route('disease.create')}}" class="inline-flex px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-800 mb-3">Add Disease</a>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        @include('layouts.message')
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -52,10 +54,10 @@
                     </td>
                     <td class="px-6 py-4 flex gap-3">
                         <a href="{{route('disease.edit', $disease->id)}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        <form action="{{route('disease.destroy')}}" method="post">
+                        <form action="{{route('disease.destroy', $disease->id)}}" method="post">
                             @csrf
                             @method('delete')
-                            <a href="{{route('disease.destroy', $disease->id)}}" class="font-medium text-red-600 dark:text-red-500 hover:underline" onclick="return confirm('Are you sure want to delete the post?')">Delete</a>
+                            <button href="{{route('disease.destroy', $disease->id)}}" class="font-medium text-red-600 dark:text-red-500 hover:underline" onclick="return confirm('Are you sure want to delete the post?')" onclick="return confirm('Are you sure want to delete the post?')" type="submit">Delete</button>
                         </form>
                     </td>
                 </tr>
