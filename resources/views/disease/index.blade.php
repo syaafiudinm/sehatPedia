@@ -51,8 +51,12 @@
                         {{ $disease->category->name }}
                     </td>
                     <td class="px-6 py-4 flex gap-3">
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+                        <a href="{{route('disease.edit', $disease->id)}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        <form action="{{route('disease.destroy')}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <a href="{{route('disease.destroy', $disease->id)}}" class="font-medium text-red-600 dark:text-red-500 hover:underline" onclick="return confirm('Are you sure want to delete the post?')">Delete</a>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
