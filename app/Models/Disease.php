@@ -19,10 +19,10 @@ class Disease extends Model
     ];
 
     public function category(){
-        $this->belongsTo(Category::class);
+       return $this->belongsTo(Category::class);
     }
 
     public function comments(){
-        $this->hasMany(Comment::class);
+       return $this->hasMany(Comment::class);
     }
 }

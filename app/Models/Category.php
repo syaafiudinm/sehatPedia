@@ -16,6 +16,6 @@ class Category extends Model
     ];
 
     public function disease(){
-        $this->hasMany(Disease::class);
+        return $this->hasMany(Disease::class);
     }
 }

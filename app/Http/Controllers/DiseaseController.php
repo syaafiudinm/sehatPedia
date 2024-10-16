@@ -12,9 +12,7 @@ class DiseaseController extends Controller
 {
     public function index()
     {   
-        $diseases = Disease::orderBy('created_at')->get();
-
-        dd($diseases);
+        $diseases = Disease::with('category')->orderBy('created_at')->get();
 
         return view('disease.index',[
             'diseases' => $diseases

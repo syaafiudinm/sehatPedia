@@ -38,14 +38,21 @@
                     <td class="px-6 py-4">
                         {{ $disease->description }}
                     </td>
-                    <td class="px-6 py-4">
-                        {{ $disease->status }}
-                    </td>
+                        @if ($disease->status == 1)
+                            <td class="px-6 py-4 text-blue-600">
+                                Active
+                            </td>
+                        @else ($disease->status == 0)
+                            <td class="px-6 py-4 text-red-600">
+                                Inactive
+                            </td>
+                        @endif
                     <td class="px-6 py-4">
                         {{ $disease->category->name }}
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-4 flex gap-3">
                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
                     </td>
                 </tr>
                 @endforeach
