@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DiseaseController;
@@ -20,3 +21,5 @@ Route::post('/category-store', [CategoryController::class, 'store'])->name('cate
 Route::get('/category-edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
 Route::post('/category-edit/{id}', [CategoryController::class, 'update'])->name('category.update');
 Route::delete('/category-delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+Route::get('/register', [AccountController::class, 'register'])->name('account.register');
