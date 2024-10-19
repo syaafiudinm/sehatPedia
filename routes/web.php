@@ -24,3 +24,5 @@ Route::delete('/category-delete/{id}', [CategoryController::class, 'destroy'])->
 
 Route::get('/register', [AccountController::class, 'register'])->name('account.register');
 Route::post('/process-register', [AccountController::class, 'processRegister'])->name('account.processRegister');
+Route::get('/login', [AccountController::class, 'login'])->name('account.login');
+Route::post('/process-login', [AccountController::class, 'authenticate'])->name('account.authenticate');
