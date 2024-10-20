@@ -115,10 +115,14 @@ class AccountController extends Controller
             $user->save();
 
         }
-
-        
     
         return redirect()->route('account.profile')->with('success', 'Profile updated successfully');
+    }
+
+    public function logout(){
+        Auth::logout();
+
+        return redirect()->route('account.login');
     }
         
 

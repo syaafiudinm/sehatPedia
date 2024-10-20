@@ -20,6 +20,7 @@ Route::group(['prefix' => 'account'], function () {
 Route::get('/list-user', [AccountController::class, 'listUser'])->name('account.listUser');
 Route::get('/account-profile', [AccountController::class, 'profile'])->name('account.profile');
 Route::post('/account-profile', [AccountController::class, 'updateProfile'])->name('account.updateProfile');
+Route::get('/account-logout', [AccountController::class, 'logout'])->name('account.logout');
 
 Route::get('/disease-dashboard', [DiseaseController::class, 'index'])->name('disease.index');
 Route::get('/disease-create', [DiseaseController::class, 'create'])->name('disease.create');
