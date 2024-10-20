@@ -8,6 +8,19 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/', [HomeController::class, 'index'])->name('beranda');
 
+Route::group(['prefix' => 'account'], function () {
+    Route::group(['middleware' => 'guest'], function () {
+        Route::get('/register', [AccountController::class, 'register'])->name('account.register');
+        Route::post('/process-register', [AccountController::class, 'processRegister'])->name('account.processRegister');
+        Route::get('/login', [AccountController::class, 'login'])->name('account.login');
+        Route::post('/process-login', [AccountController::class, 'authenticate'])->name('account.authenticate');
+    });
+});
+
+Route::get('/list-user', [AccountController::class, 'listUser'])->name('account.listUser');
+Route::get('/account-profile', [AccountController::class, 'profile'])->name('account.profile');
+Route::post('/account-profile', [AccountController::class, 'updateProfile'])->name('account.updateProfile');
+
 Route::get('/disease-dashboard', [DiseaseController::class, 'index'])->name('disease.index');
 Route::get('/disease-create', [DiseaseController::class, 'create'])->name('disease.create');
 Route::post('/disease-store', [DiseaseController::class, 'store'])->name('disease.store');
@@ -22,7 +35,3 @@ Route::get('/category-edit/{id}', [CategoryController::class, 'edit'])->name('ca
 Route::post('/category-edit/{id}', [CategoryController::class, 'update'])->name('category.update');
 Route::delete('/category-delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
-Route::get('/register', [AccountController::class, 'register'])->name('account.register');
-Route::post('/process-register', [AccountController::class, 'processRegister'])->name('account.processRegister');
-Route::get('/login', [AccountController::class, 'login'])->name('account.login');
-Route::post('/process-login', [AccountController::class, 'authenticate'])->name('account.authenticate');
